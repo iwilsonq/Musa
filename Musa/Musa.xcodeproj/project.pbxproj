@@ -6,25 +6,9 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		2DED44E51C6333D90071A981 /* ResourcePath.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44E41C6333D90071A981 /* ResourcePath.mm */; };
-		2DED44E81C6333D90071A981 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44E71C6333D90071A981 /* main.cpp */; };
-		2DED44EB1C6333D90071A981 /* cute_image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2DED44EA1C6333D90071A981 /* cute_image.jpg */; };
-		2DED44ED1C6333D90071A981 /* nice_music.ogg in Resources */ = {isa = PBXBuildFile; fileRef = 2DED44EC1C6333D90071A981 /* nice_music.ogg */; };
-		2DED44EF1C6333D90071A981 /* sansation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2DED44EE1C6333D90071A981 /* sansation.ttf */; };
-		2DED44F11C6333D90071A981 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2DED44F01C6333D90071A981 /* icon.png */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
 		2DED44DF1C6333D90071A981 /* Musa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DED44E31C6333D90071A981 /* Musa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Musa-Info.plist"; sourceTree = "<group>"; };
-		2DED44E41C6333D90071A981 /* ResourcePath.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = ResourcePath.mm; sourceTree = "<group>"; };
-		2DED44E61C6333D90071A981 /* ResourcePath.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = ResourcePath.hpp; sourceTree = "<group>"; };
-		2DED44E71C6333D90071A981 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		2DED44EA1C6333D90071A981 /* cute_image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = cute_image.jpg; sourceTree = "<group>"; };
-		2DED44EC1C6333D90071A981 /* nice_music.ogg */ = {isa = PBXFileReference; lastKnownFileType = file; path = nice_music.ogg; sourceTree = "<group>"; };
-		2DED44EE1C6333D90071A981 /* sansation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = sansation.ttf; sourceTree = "<group>"; };
-		2DED44F01C6333D90071A981 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,9 +41,6 @@
 		2DED44E11C6333D90071A981 /* Musa */ = {
 			isa = PBXGroup;
 			children = (
-				2DED44E41C6333D90071A981 /* ResourcePath.mm */,
-				2DED44E61C6333D90071A981 /* ResourcePath.hpp */,
-				2DED44E71C6333D90071A981 /* main.cpp */,
 				2DED44E91C6333D90071A981 /* Resources */,
 				2DED44E21C6333D90071A981 /* Supporting Files */,
 			);
@@ -77,10 +58,6 @@
 		2DED44E91C6333D90071A981 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				2DED44EA1C6333D90071A981 /* cute_image.jpg */,
-				2DED44EC1C6333D90071A981 /* nice_music.ogg */,
-				2DED44EE1C6333D90071A981 /* sansation.ttf */,
-				2DED44F01C6333D90071A981 /* icon.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -142,10 +119,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DED44F11C6333D90071A981 /* icon.png in Resources */,
-				2DED44EF1C6333D90071A981 /* sansation.ttf in Resources */,
-				2DED44ED1C6333D90071A981 /* nice_music.ogg in Resources */,
-				2DED44EB1C6333D90071A981 /* cute_image.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,8 +145,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2DED44E81C6333D90071A981 /* main.cpp in Sources */,
-				2DED44E51C6333D90071A981 /* ResourcePath.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
