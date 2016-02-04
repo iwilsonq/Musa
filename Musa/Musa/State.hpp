@@ -1,5 +1,5 @@
 //
-//  State.h
+//  State.hpp
 //  Musa
 //
 //  Created by Ian Wilson on 2/3/16.
@@ -9,6 +9,68 @@
 #ifndef __Musa__State__
 #define __Musa__State__
 
-#include <stdio.h>
 
+#include "StateIdentifiers.hpp"
+#include "ResourceIdentifiers.hpp"
+
+#include <SFML/System/Time.hpp>
+#include <SFML/Window/Event.hpp>
+
+#include <memory>
+
+
+namespace sf
+{
+    class RenderWindow;
+    class Event;
+}
+
+class StateStack;
+class MusicPlayer;
+class SoundPlayer;
+class KeyBinding;
+
+
+class State
+{
+public:
+    typedef std::unique_ptr<State> Ptr;
+    
+    struct Context
+    {
+                            Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts/*, MusicPlayer& music, SoundPlayer& sounds, KeyBinding& keys*/);
+        
+        sf::RenderWindow*	window;
+        TextureHolder*		textures;
+        FontHolder*			fonts;
+        //KeyBinding*			keys;
+        //MusicPlayer*		music;
+        //SoundPlayer*		sounds;
+    };
+    
+    
+public:
+    State(StateStack& stack, Context context);
+    virtual				~State();
+    
+    virtual void		draw() = 0;
+    virtual bool		update(sf::Time dt) = 0;
+    virtual bool		handleEvent(const sf::Event& event) = 0;
+    
+    virtual void		onActivate();
+    virtual void		onDestroy();
+    
+    
+protected:
+    void				requestStackPush(States::ID stateID);
+    void				requestStackPop();
+    void				requestStateClear();
+    
+    Context				getContext() const;
+    
+    
+private:
+    StateStack*			mStack;
+    Context				mContext;
+};
 #endif /* defined(__Musa__State__) */

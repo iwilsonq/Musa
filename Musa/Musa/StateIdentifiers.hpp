@@ -9,5 +9,19 @@
 #ifndef Musa_StateIdentifiers_hpp
 #define Musa_StateIdentifiers_hpp
 
+namespace States
+{
+    enum ID
+    {
+        None,
+        Title,
+        Menu,
+        Game,
+        Pause,
+        Settings,
+        GameOver,
+        MissionSuccess,
+    };
+}
 
 #endif

@@ -6,8 +6,46 @@
 //  Copyright (c) 2016 APM. All rights reserved.
 //
 
-#ifndef Musa_ResourseIdentifiers_hpp
-#define Musa_ResourseIdentifiers_hpp
+#ifndef Musa_ResourceIdentifiers_hpp
+#define Musa_ResourceIdentifiers_hpp
+
+namespace sf
+{
+    class Texture;
+    class Font;
+}
+
+namespace Textures
+{
+    enum ID
+    {
+        Entities,
+        Jungle,
+        TitleScreen,
+        Buttons,
+        Explosion,
+        Particle,
+        FinishLine,
+    };
+}
+
+
+namespace Fonts
+{
+    enum ID
+    {
+        Main,
+    };
+}
+
+
+// Forward declaration and a few type definitions
+template <typename Resource, typename Identifier>
+class ResourceHolder;
+
+typedef ResourceHolder<sf::Texture, Textures::ID>   TextureHolder;
+typedef ResourceHolder<sf::Font, Fonts::ID>         FontHolder;
+
 
 
 #endif
