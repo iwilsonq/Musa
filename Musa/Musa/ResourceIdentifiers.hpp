@@ -19,13 +19,9 @@ namespace Textures
 {
     enum ID
     {
-        Entities,
-        Jungle,
+        Desert,
         TitleScreen,
         Buttons,
-        Explosion,
-        Particle,
-        FinishLine,
     };
 }
 

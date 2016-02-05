@@ -11,6 +11,7 @@
 #include "StateIdentifiers.hpp"
 #include "TitleState.hpp"
 #include "MenuState.hpp"
+#include "GameState.hpp"
 
 
 #include <SFML/Window.hpp>
@@ -95,6 +96,7 @@ void Application::registerStates()
 {
     mStateStack.registerState<TitleState>(States::Title);
     mStateStack.registerState<MenuState>(States::Menu);
+    mStateStack.registerState<GameState>(States::Game);
 
 }
 

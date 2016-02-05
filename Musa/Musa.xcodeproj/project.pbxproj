@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2DAC992A1C654B65008DA0F6 /* SceneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC99281C654B65008DA0F6 /* SceneNode.cpp */; };
+		2DAC992E1C65527E008DA0F6 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC992C1C65527E008DA0F6 /* Command.cpp */; };
+		2DAC99311C65530A008DA0F6 /* CommandQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC992F1C65530A008DA0F6 /* CommandQueue.cpp */; };
+		2DAC99341C65592F008DA0F6 /* SpriteNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC99321C65592F008DA0F6 /* SpriteNode.cpp */; };
+		2DAD7F2D1C64AF83009DCBD6 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD7F2B1C64AF83009DCBD6 /* GameState.cpp */; };
+		2DAD7F301C64B230009DCBD6 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD7F2E1C64B230009DCBD6 /* World.cpp */; };
 		2DED44F81C6334BE0071A981 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44F71C6334BE0071A981 /* main.cpp */; };
 		2DED44FB1C63350D0071A981 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44F91C63350D0071A981 /* Application.cpp */; };
 		2DED44FE1C6337010071A981 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44FC1C6337010071A981 /* State.cpp */; };
@@ -21,6 +27,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2DAC99281C654B65008DA0F6 /* SceneNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneNode.cpp; sourceTree = "<group>"; };
+		2DAC99291C654B65008DA0F6 /* SceneNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneNode.hpp; sourceTree = "<group>"; };
+		2DAC992B1C6550E9008DA0F6 /* Category.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Category.hpp; sourceTree = "<group>"; };
+		2DAC992C1C65527E008DA0F6 /* Command.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Command.cpp; sourceTree = "<group>"; };
+		2DAC992D1C65527E008DA0F6 /* Command.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Command.hpp; sourceTree = "<group>"; };
+		2DAC992F1C65530A008DA0F6 /* CommandQueue.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = CommandQueue.cpp; sourceTree = "<group>"; };
+		2DAC99301C65530A008DA0F6 /* CommandQueue.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = CommandQueue.hpp; sourceTree = "<group>"; };
+		2DAC99321C65592F008DA0F6 /* SpriteNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SpriteNode.cpp; sourceTree = "<group>"; };
+		2DAC99331C65592F008DA0F6 /* SpriteNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SpriteNode.hpp; sourceTree = "<group>"; };
+		2DAD7F2B1C64AF83009DCBD6 /* GameState.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = GameState.cpp; sourceTree = "<group>"; };
+		2DAD7F2C1C64AF83009DCBD6 /* GameState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
+		2DAD7F2E1C64B230009DCBD6 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
+		2DAD7F2F1C64B230009DCBD6 /* World.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = World.hpp; sourceTree = "<group>"; };
 		2DED44DF1C6333D90071A981 /* Musa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DED44E31C6333D90071A981 /* Musa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Musa-Info.plist"; sourceTree = "<group>"; };
 		2DED44F71C6334BE0071A981 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -105,6 +124,19 @@
 				2DED451A1C6346750071A981 /* Component.hpp */,
 				2DED451D1C6346CA0071A981 /* Container.cpp */,
 				2DED451E1C6346CA0071A981 /* Container.hpp */,
+				2DAD7F2B1C64AF83009DCBD6 /* GameState.cpp */,
+				2DAD7F2C1C64AF83009DCBD6 /* GameState.hpp */,
+				2DAD7F2E1C64B230009DCBD6 /* World.cpp */,
+				2DAD7F2F1C64B230009DCBD6 /* World.hpp */,
+				2DAC99281C654B65008DA0F6 /* SceneNode.cpp */,
+				2DAC99291C654B65008DA0F6 /* SceneNode.hpp */,
+				2DAC992B1C6550E9008DA0F6 /* Category.hpp */,
+				2DAC992C1C65527E008DA0F6 /* Command.cpp */,
+				2DAC992D1C65527E008DA0F6 /* Command.hpp */,
+				2DAC992F1C65530A008DA0F6 /* CommandQueue.cpp */,
+				2DAC99301C65530A008DA0F6 /* CommandQueue.hpp */,
+				2DAC99321C65592F008DA0F6 /* SpriteNode.cpp */,
+				2DAC99331C65592F008DA0F6 /* SpriteNode.hpp */,
 			);
 			path = Musa;
 			sourceTree = "<group>";
@@ -211,15 +243,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DED45121C6345320071A981 /* Utility.cpp in Sources */,
+				2DAC992E1C65527E008DA0F6 /* Command.cpp in Sources */,
 				2DED451B1C6346750071A981 /* Component.cpp in Sources */,
+				2DAD7F301C64B230009DCBD6 /* World.cpp in Sources */,
+				2DAD7F2D1C64AF83009DCBD6 /* GameState.cpp in Sources */,
 				2DED44FB1C63350D0071A981 /* Application.cpp in Sources */,
 				2DED450F1C6344BE0071A981 /* TitleState.cpp in Sources */,
 				2DED44F81C6334BE0071A981 /* main.cpp in Sources */,
 				2DED451F1C6346CA0071A981 /* Container.cpp in Sources */,
+				2DAC992A1C654B65008DA0F6 /* SceneNode.cpp in Sources */,
 				2DED45011C63383A0071A981 /* StateStack.cpp in Sources */,
 				2DED44FE1C6337010071A981 /* State.cpp in Sources */,
+				2DAC99341C65592F008DA0F6 /* SpriteNode.cpp in Sources */,
 				2DED45151C6345A10071A981 /* MenuState.cpp in Sources */,
 				2DED45181C6345FA0071A981 /* Button.cpp in Sources */,
+				2DAC99311C65530A008DA0F6 /* CommandQueue.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -357,6 +395,7 @@
 				2DED44F61C6333D90071A981 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
