@@ -18,6 +18,7 @@
 #include "SpriteNode.hpp"
 #include "CommandQueue.hpp"
 #include "Command.hpp"
+#include "Hero.hpp"
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/View.hpp>
@@ -42,6 +43,8 @@ public:
     void                                setWorldScrollCompensation(float compensation);
     void								update(sf::Time dt);
     void								draw();
+    
+    Hero*                               addHero();
     
     sf::FloatRect						getViewBounds() const;
     CommandQueue&						getCommandQueue();
@@ -98,7 +101,7 @@ private:
     sf::Vector2f						mSpawnPosition;
     float								mScrollSpeed;
     float								mScrollSpeedCompensation;
-    //std::vector<Aircraft*>				mPlayerAircrafts;
+    std::vector<Hero*>                  mPlayerHeros;
     
     SpriteNode*							mFinishSprite;
     

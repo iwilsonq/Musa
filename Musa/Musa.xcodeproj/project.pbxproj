@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D669AE81C65F5C30065DA73 /* Animation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AE61C65F5C30065DA73 /* Animation.cpp */; };
+		2D669AEB1C65F5F30065DA73 /* AnimatedSprite.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AE91C65F5F30065DA73 /* AnimatedSprite.cpp */; };
+		2D669AEE1C65FEBA0065DA73 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AEC1C65FEBA0065DA73 /* Entity.cpp */; };
+		2D669AF11C65FFB90065DA73 /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AEF1C65FFB90065DA73 /* Hero.cpp */; };
+		2D669AF41C6602720065DA73 /* DataTables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AF21C6602720065DA73 /* DataTables.cpp */; };
 		2DAC992A1C654B65008DA0F6 /* SceneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC99281C654B65008DA0F6 /* SceneNode.cpp */; };
 		2DAC992E1C65527E008DA0F6 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC992C1C65527E008DA0F6 /* Command.cpp */; };
 		2DAC99311C65530A008DA0F6 /* CommandQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC992F1C65530A008DA0F6 /* CommandQueue.cpp */; };
@@ -27,6 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D669AE61C65F5C30065DA73 /* Animation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Animation.cpp; sourceTree = "<group>"; };
+		2D669AE71C65F5C30065DA73 /* Animation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Animation.hpp; sourceTree = "<group>"; };
+		2D669AE91C65F5F30065DA73 /* AnimatedSprite.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AnimatedSprite.cpp; sourceTree = "<group>"; };
+		2D669AEA1C65F5F30065DA73 /* AnimatedSprite.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AnimatedSprite.hpp; sourceTree = "<group>"; };
+		2D669AEC1C65FEBA0065DA73 /* Entity.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Entity.cpp; sourceTree = "<group>"; };
+		2D669AED1C65FEBA0065DA73 /* Entity.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Entity.hpp; sourceTree = "<group>"; };
+		2D669AEF1C65FFB90065DA73 /* Hero.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Hero.cpp; sourceTree = "<group>"; };
+		2D669AF01C65FFB90065DA73 /* Hero.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Hero.hpp; sourceTree = "<group>"; };
+		2D669AF21C6602720065DA73 /* DataTables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataTables.cpp; sourceTree = "<group>"; };
+		2D669AF31C6602720065DA73 /* DataTables.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DataTables.hpp; sourceTree = "<group>"; };
 		2DAC99281C654B65008DA0F6 /* SceneNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneNode.cpp; sourceTree = "<group>"; };
 		2DAC99291C654B65008DA0F6 /* SceneNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneNode.hpp; sourceTree = "<group>"; };
 		2DAC992B1C6550E9008DA0F6 /* Category.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Category.hpp; sourceTree = "<group>"; };
@@ -137,6 +152,16 @@
 				2DAC99301C65530A008DA0F6 /* CommandQueue.hpp */,
 				2DAC99321C65592F008DA0F6 /* SpriteNode.cpp */,
 				2DAC99331C65592F008DA0F6 /* SpriteNode.hpp */,
+				2D669AE61C65F5C30065DA73 /* Animation.cpp */,
+				2D669AE71C65F5C30065DA73 /* Animation.hpp */,
+				2D669AE91C65F5F30065DA73 /* AnimatedSprite.cpp */,
+				2D669AEA1C65F5F30065DA73 /* AnimatedSprite.hpp */,
+				2D669AEC1C65FEBA0065DA73 /* Entity.cpp */,
+				2D669AED1C65FEBA0065DA73 /* Entity.hpp */,
+				2D669AEF1C65FFB90065DA73 /* Hero.cpp */,
+				2D669AF01C65FFB90065DA73 /* Hero.hpp */,
+				2D669AF21C6602720065DA73 /* DataTables.cpp */,
+				2D669AF31C6602720065DA73 /* DataTables.hpp */,
 			);
 			path = Musa;
 			sourceTree = "<group>";
@@ -243,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2DED45121C6345320071A981 /* Utility.cpp in Sources */,
+				2D669AEB1C65F5F30065DA73 /* AnimatedSprite.cpp in Sources */,
 				2DAC992E1C65527E008DA0F6 /* Command.cpp in Sources */,
 				2DED451B1C6346750071A981 /* Component.cpp in Sources */,
 				2DAD7F301C64B230009DCBD6 /* World.cpp in Sources */,
@@ -252,12 +278,16 @@
 				2DED44F81C6334BE0071A981 /* main.cpp in Sources */,
 				2DED451F1C6346CA0071A981 /* Container.cpp in Sources */,
 				2DAC992A1C654B65008DA0F6 /* SceneNode.cpp in Sources */,
+				2D669AEE1C65FEBA0065DA73 /* Entity.cpp in Sources */,
 				2DED45011C63383A0071A981 /* StateStack.cpp in Sources */,
+				2D669AF41C6602720065DA73 /* DataTables.cpp in Sources */,
 				2DED44FE1C6337010071A981 /* State.cpp in Sources */,
 				2DAC99341C65592F008DA0F6 /* SpriteNode.cpp in Sources */,
 				2DED45151C6345A10071A981 /* MenuState.cpp in Sources */,
 				2DED45181C6345FA0071A981 /* Button.cpp in Sources */,
 				2DAC99311C65530A008DA0F6 /* CommandQueue.cpp in Sources */,
+				2D669AE81C65F5C30065DA73 /* Animation.cpp in Sources */,
+				2D669AF11C65FFB90065DA73 /* Hero.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

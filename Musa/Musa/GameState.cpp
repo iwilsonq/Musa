@@ -17,7 +17,7 @@ GameState::GameState(StateStack& stack, Context context)
 , mWorld(*context.window, *context.fonts)
 //, mPlayer()
 {
-//    mWorld.addAircraft(1);
+    mWorld.addHero();
 
 }
 

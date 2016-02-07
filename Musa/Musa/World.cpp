@@ -60,14 +60,7 @@ void World::update(sf::Time dt)
     while (!mCommandQueue.isEmpty())
         mSceneGraph.onCommand(mCommandQueue.pop(), dt);
     adaptPlayerVelocity();
-    
-    // Collision detection and response (may destroy entities)
-    handleCollisions();
-    
-//    // Remove aircrafts that were destroyed (World::removeWrecks() only destroys the entities, not the pointers in mPlayerAircraft)
-//    auto firstToRemove = std::remove_if(mPlayerAircrafts.begin(), mPlayerAircrafts.end(), std::mem_fn(&Aircraft::isMarkedForRemoval));
-//    mPlayerAircrafts.erase(firstToRemove, mPlayerAircrafts.end());
-    
+        
     
     // Remove all destroyed entities, create new ones
     mSceneGraph.removeWrecks();
@@ -89,7 +82,18 @@ void World::draw()
 void World::loadTextures()
 {
     mTextures.load(Textures::Desert, "Media/Textures/Background.png");
+    mTextures.load(Textures::Auron, "Media/Textures/auron.png");
     
+}
+
+Hero* World::addHero()
+{
+    std::unique_ptr<Hero> player(new Hero(Hero::Musa, mTextures, mFonts));
+    player->setPosition(mWorldView.getCenter());
+    
+    mPlayerHeros.push_back(player.get());
+    mSceneLayers[Ground]->attachChild(std::move(player));
+    return mPlayerHeros.back();
 }
 
 /****~~~******

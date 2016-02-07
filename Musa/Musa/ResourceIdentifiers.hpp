@@ -22,6 +22,7 @@ namespace Textures
         Desert,
         TitleScreen,
         Buttons,
+        Auron,
     };
 }
 

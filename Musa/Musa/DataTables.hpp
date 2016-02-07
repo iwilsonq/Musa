@@ -1,5 +1,5 @@
 //
-//  DataTables.h
+//  DataTables.hpp
 //  Musa
 //
 //  Created by Ian Wilson on 2/6/16.
@@ -9,6 +9,36 @@
 #ifndef __Musa__DataTables__
 #define __Musa__DataTables__
 
-#include <stdio.h>
+#include "ResourceIdentifiers.hpp"
+
+#include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/Rect.hpp>
+
+#include <vector>
+#include <functional>
+
+struct Direction
+{
+    Direction(float angle, float distance)
+    : angle(angle)
+    , distance(distance)
+    {
+    }
+    
+    float angle;
+    float distance;
+};
+
+
+struct HeroData
+{
+    int								hitpoints;
+    float							speed;
+    Textures::ID					texture;
+    sf::IntRect						textureRect;
+};
+
+std::vector<HeroData>	initializeHeroData();
 
 #endif /* defined(__Musa__DataTables__) */
