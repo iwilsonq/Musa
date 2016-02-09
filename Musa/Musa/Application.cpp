@@ -20,7 +20,7 @@ const sf::Time Application::TimePerFrame = sf::seconds(1.f/60.f);
 
 Application::Application()
 : mWindow(sf::VideoMode(1024, 568), "Hello Musa", sf::Style::Close)
-, mStateStack(State::Context(mWindow, mTextures, mFonts))
+, mStateStack(State::Context(mWindow, mTextures, mFonts, mKeyBinding))
 , mStatisticsText()
 , mStatisticsUpdateTime()
 , mStatisticsNumFrames(0)

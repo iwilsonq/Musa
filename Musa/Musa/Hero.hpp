@@ -13,6 +13,7 @@
 #include "Command.hpp"
 #include "ResourceIdentifiers.hpp"
 #include "Animation.hpp"
+#include "AnimatedSprite.hpp"
 
 #include <SFML/Graphics/Sprite.hpp>
 
@@ -40,6 +41,7 @@ private:
     virtual void            drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const;
     virtual void 			updateCurrent(sf::Time dt, CommandQueue& commands);
     void					updateMovementPattern(sf::Time dt);
+    void                    updateMoveAnimation();
     
     
 private:
@@ -48,8 +50,8 @@ private:
     
     float					mTravelledDistance;
     std::size_t				mDirectionIndex;
+    unsigned int            mCategory;
     
-    int                     mIdentifier;
 };
 
 

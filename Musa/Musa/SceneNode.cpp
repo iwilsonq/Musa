@@ -8,11 +8,12 @@
 
 #include "SceneNode.hpp"
 #include <cassert>
+#include <iostream>
 
 SceneNode::SceneNode(Category::Type category)
 : mChildren()
 , mParent(nullptr)
-, mDefaultCategory(0)
+, mDefaultCategory(2)
 {
 }
 
@@ -94,8 +95,9 @@ void SceneNode::onCommand(const Command& command, sf::Time dt)
 {
     // Command current node, if category matches
     if (command.category & getCategory())
+    {
         command.action(*this, dt);
-    
+    }
     for(Ptr& child : mChildren)
         child->onCommand(command, dt);
 }

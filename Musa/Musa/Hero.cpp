@@ -16,6 +16,10 @@
 #include "SFML/Graphics/RenderStates.hpp"
 
 #include <cmath>
+#include <iostream>
+
+const sf::Time TimePerFrame = sf::seconds(1.f/4.f);
+
 
 using namespace std::placeholders;
 
@@ -31,9 +35,9 @@ Hero::Hero(Type type, const TextureHolder& textures, const FontHolder& fonts)
 , mSprite(textures.get(Table[type].texture), Table[type].textureRect)
 , mTravelledDistance(0.f)
 , mDirectionIndex(0)
-, mIdentifier(0)
+, mCategory(2)
 {
-    centerOrigin(mSprite);
+    
 }
 
 /******************************************************************************************************
@@ -46,12 +50,12 @@ void Hero::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 
 unsigned int Hero::getCategory() const
 {
-
+    return mCategory;
 }
 
 void Hero::updateCurrent(sf::Time dt, CommandQueue& commands)
 {
-
+    updateMoveAnimation();
 }
 
 sf::FloatRect Hero::getBoundingRect() const
@@ -75,5 +79,35 @@ float Hero::getMaxSpeed() const
     return Table[mType].speed;
 }
 
+void Hero::updateMoveAnimation()
+{
+    sf::IntRect textureRect = Table[mType].textureRect;
+    sf::Clock clock;
+    sf::Time timeSinceLastUpdate = sf::Time::Zero;
+    // Move Down: Texture rect offset once
+    if (getVelocity().y > 0.f)
+    {
+        std::cout << "PENIS";
+
+        sf::Time dt = clock.restart();
+        timeSinceLastUpdate += dt;
+        if(timeSinceLastUpdate > TimePerFrame)
+            textureRect.left += textureRect.width;
+    }
+    else if (getVelocity().y < 0.f)
+    {
+        sf::Time dt = clock.restart();
+        timeSinceLastUpdate += dt;
+        if(timeSinceLastUpdate > TimePerFrame)
+        {
+            textureRect.top = (3 * textureRect.height);
+            textureRect.left += textureRect.width;
+        }
+    }
+
+    
+    
+    mSprite.setTextureRect(textureRect);
+}
 
 

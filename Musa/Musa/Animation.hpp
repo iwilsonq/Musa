@@ -13,6 +13,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/System/Noncopyable.hpp>
 
+
 class Animation : private sf::NonCopyable
 {
 public:

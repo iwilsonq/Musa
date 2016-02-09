@@ -19,6 +19,7 @@
 #include "CommandQueue.hpp"
 #include "Command.hpp"
 #include "Hero.hpp"
+#include "Animation.hpp"
 
 #include <SFML/System/NonCopyable.hpp>
 #include <SFML/Graphics/View.hpp>
@@ -40,7 +41,6 @@ class World : private sf::NonCopyable
 public:
     World(sf::RenderTarget& outputTarget, FontHolder& fonts);
     
-    void                                setWorldScrollCompensation(float compensation);
     void								update(sf::Time dt);
     void								draw();
     
@@ -71,19 +71,19 @@ private:
         LayerCount
     };
     
-//    struct SpawnPoint
-//    {
-//        SpawnPoint(Aircraft::Type type, float x, float y)
-//        : type(type)
-//        , x(x)
-//        , y(y)
-//        {
-//        }
-//    
-//        Aircraft::Type type;
-//        float x;
-//        float y;
-//    };
+    struct SpawnPoint
+    {
+        SpawnPoint(Hero::Type type, float x, float y)
+        : type(type)
+        , x(x)
+        , y(y)
+        {
+        }
+    
+        Hero::Type type;
+        float x;
+        float y;
+    };
     
     
 private:
@@ -99,8 +99,6 @@ private:
     
     sf::FloatRect						mWorldBounds;
     sf::Vector2f						mSpawnPosition;
-    float								mScrollSpeed;
-    float								mScrollSpeedCompensation;
     std::vector<Hero*>                  mPlayerHeros;
     
     SpriteNode*							mFinishSprite;

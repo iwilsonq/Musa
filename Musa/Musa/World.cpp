@@ -27,9 +27,7 @@ World::World(sf::RenderTarget& outputTarget, FontHolder& fonts)
 , mSceneLayers()
 , mWorldBounds(0.f, 0.f, mWorldView.getSize().x, 5000.f)
 , mSpawnPosition(mWorldView.getSize().x / 2.f, mWorldBounds.height - mWorldView.getSize().y / 2.f)
-, mScrollSpeed(-50.f)
-, mScrollSpeedCompensation(1.f)
-//, mPlayerAircrafts()
+, mPlayerHeros()
 , mFinishSprite(nullptr)
 
 {
@@ -42,18 +40,12 @@ World::World(sf::RenderTarget& outputTarget, FontHolder& fonts)
     mWorldView.setCenter(mSpawnPosition);
 }
 
-void World::setWorldScrollCompensation(float compensation)
-{
-    mScrollSpeedCompensation = compensation;
-}
 
 void World::update(sf::Time dt)
 {
-//    // Scroll the world, reset player velocity
-//    mWorldView.move(0.f, mScrollSpeed * dt.asSeconds() * mScrollSpeedCompensation);
-//    
-//    FOREACH(Aircraft* a, mPlayerAircrafts)
-//    a->setVelocity(0.f, 0.f);
+    // Scroll the world, reset player velocity
+    for(Hero* h : mPlayerHeros)
+        h->setVelocity(0.f, 0.f);
     
     
     // All commands from queue are forwarded to scenegraph
@@ -93,6 +85,8 @@ Hero* World::addHero()
     
     mPlayerHeros.push_back(player.get());
     mSceneLayers[Ground]->attachChild(std::move(player));
+    
+    
     return mPlayerHeros.back();
 }
 
@@ -147,30 +141,27 @@ void World::adaptPlayerPosition()
     sf::FloatRect viewBounds = getViewBounds();
     const float borderDistance = 40.f;
     
-//    FOREACH(Aircraft* aircraft, mPlayerAircrafts)
-//    {
-//        sf::Vector2f position = aircraft->getPosition();
-//        position.x = std::max(position.x, viewBounds.left + borderDistance);
-//        position.x = std::min(position.x, viewBounds.left + viewBounds.width - borderDistance);
-//        position.y = std::max(position.y, viewBounds.top + borderDistance);
-//        position.y = std::min(position.y, viewBounds.top + viewBounds.height - borderDistance);
-//        aircraft->setPosition(position);
-//    }
+    for(Hero* hero : mPlayerHeros)
+    {
+        sf::Vector2f position = hero->getPosition();
+        position.x = std::max(position.x, viewBounds.left + borderDistance);
+        position.x = std::min(position.x, viewBounds.left + viewBounds.width - borderDistance);
+        position.y = std::max(position.y, viewBounds.top + borderDistance);
+        position.y = std::min(position.y, viewBounds.top + viewBounds.height - borderDistance);
+        hero->setPosition(position);
+    }
 }
 
 void World::adaptPlayerVelocity()
 {
-//    FOREACH(Aircraft* aircraft, mPlayerAircrafts)
-//    {
-//        sf::Vector2f velocity = aircraft->getVelocity();
-//        
-//        // If moving diagonally, reduce velocity (to have always same velocity)
-//        if (velocity.x != 0.f && velocity.y != 0.f)
-//            aircraft->setVelocity(velocity / std::sqrt(2.f));
-//        
-//        // Add scrolling velocity
-//        aircraft->accelerate(0.f, mScrollSpeed);
-//    }
+    for(Hero* hero : mPlayerHeros)
+    {
+        sf::Vector2f velocity = hero->getVelocity();
+        
+        // If moving diagonally, reduce velocity (to have always same velocity)
+        if (velocity.x != 0.f && velocity.y != 0.f)
+            hero->setVelocity(velocity / std::sqrt(2.f));
+    }
 }
 
 

@@ -38,12 +38,12 @@ public:
     
     struct Context
     {
-                            Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts/*, MusicPlayer& music, SoundPlayer& sounds, KeyBinding& keys*/);
+                            Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts/*, MusicPlayer& music, SoundPlayer& sounds*/, KeyBinding& keys);
         
         sf::RenderWindow*	window;
         TextureHolder*		textures;
         FontHolder*			fonts;
-        //KeyBinding*			keys;
+        KeyBinding*			keys;
         //MusicPlayer*		music;
         //SoundPlayer*		sounds;
     };

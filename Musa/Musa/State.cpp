@@ -10,11 +10,11 @@
 #include "StateStack.hpp"
 
 
-State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts/*, MusicPlayer& music, SoundPlayer& sounds, KeyBinding& keys*/)
+State::Context::Context(sf::RenderWindow& window, TextureHolder& textures, FontHolder& fonts/*, MusicPlayer& music, SoundPlayer& sounds*/, KeyBinding& keys)
 : window(&window)
 , textures(&textures)
 , fonts(&fonts)
-//, keys(&keys)
+, keys(&keys)
 //, music(&music)
 //, sounds(&sounds)
 {

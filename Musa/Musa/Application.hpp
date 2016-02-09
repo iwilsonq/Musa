@@ -15,6 +15,7 @@
 #include "StateStack.hpp"
 #include "ResourceHolder.hpp"
 #include "ResourceIdentifiers.hpp"
+#include "KeyBinding.hpp"
 
 class Application
 {
@@ -39,6 +40,8 @@ private:
     StateStack              mStateStack;
     TextureHolder           mTextures;
     FontHolder              mFonts;
+    KeyBinding				mKeyBinding;
+
     
     sf::Text				mStatisticsText;
     sf::Time				mStatisticsUpdateTime;

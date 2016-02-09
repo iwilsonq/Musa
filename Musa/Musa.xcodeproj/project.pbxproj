@@ -18,6 +18,8 @@
 		2DAC99341C65592F008DA0F6 /* SpriteNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC99321C65592F008DA0F6 /* SpriteNode.cpp */; };
 		2DAD7F2D1C64AF83009DCBD6 /* GameState.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD7F2B1C64AF83009DCBD6 /* GameState.cpp */; };
 		2DAD7F301C64B230009DCBD6 /* World.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAD7F2E1C64B230009DCBD6 /* World.cpp */; };
+		2DC0A9EF1C66B1CD0069D3CD /* Player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0A9ED1C66B1CD0069D3CD /* Player.cpp */; };
+		2DC0A9F21C66B5060069D3CD /* KeyBinding.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DC0A9F01C66B5060069D3CD /* KeyBinding.cpp */; };
 		2DED44F81C6334BE0071A981 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44F71C6334BE0071A981 /* main.cpp */; };
 		2DED44FB1C63350D0071A981 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44F91C63350D0071A981 /* Application.cpp */; };
 		2DED44FE1C6337010071A981 /* State.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DED44FC1C6337010071A981 /* State.cpp */; };
@@ -55,6 +57,10 @@
 		2DAD7F2C1C64AF83009DCBD6 /* GameState.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = GameState.hpp; sourceTree = "<group>"; };
 		2DAD7F2E1C64B230009DCBD6 /* World.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = World.cpp; sourceTree = "<group>"; };
 		2DAD7F2F1C64B230009DCBD6 /* World.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = World.hpp; sourceTree = "<group>"; };
+		2DC0A9ED1C66B1CD0069D3CD /* Player.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Player.cpp; sourceTree = "<group>"; };
+		2DC0A9EE1C66B1CD0069D3CD /* Player.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Player.hpp; sourceTree = "<group>"; };
+		2DC0A9F01C66B5060069D3CD /* KeyBinding.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = KeyBinding.cpp; sourceTree = "<group>"; };
+		2DC0A9F11C66B5060069D3CD /* KeyBinding.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = KeyBinding.hpp; sourceTree = "<group>"; };
 		2DED44DF1C6333D90071A981 /* Musa.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Musa.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DED44E31C6333D90071A981 /* Musa-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Musa-Info.plist"; sourceTree = "<group>"; };
 		2DED44F71C6334BE0071A981 /* main.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
@@ -162,6 +168,10 @@
 				2D669AF01C65FFB90065DA73 /* Hero.hpp */,
 				2D669AF21C6602720065DA73 /* DataTables.cpp */,
 				2D669AF31C6602720065DA73 /* DataTables.hpp */,
+				2DC0A9ED1C66B1CD0069D3CD /* Player.cpp */,
+				2DC0A9EE1C66B1CD0069D3CD /* Player.hpp */,
+				2DC0A9F01C66B5060069D3CD /* KeyBinding.cpp */,
+				2DC0A9F11C66B5060069D3CD /* KeyBinding.hpp */,
 			);
 			path = Musa;
 			sourceTree = "<group>";
@@ -272,6 +282,7 @@
 				2DAC992E1C65527E008DA0F6 /* Command.cpp in Sources */,
 				2DED451B1C6346750071A981 /* Component.cpp in Sources */,
 				2DAD7F301C64B230009DCBD6 /* World.cpp in Sources */,
+				2DC0A9F21C66B5060069D3CD /* KeyBinding.cpp in Sources */,
 				2DAD7F2D1C64AF83009DCBD6 /* GameState.cpp in Sources */,
 				2DED44FB1C63350D0071A981 /* Application.cpp in Sources */,
 				2DED450F1C6344BE0071A981 /* TitleState.cpp in Sources */,
@@ -283,6 +294,7 @@
 				2D669AF41C6602720065DA73 /* DataTables.cpp in Sources */,
 				2DED44FE1C6337010071A981 /* State.cpp in Sources */,
 				2DAC99341C65592F008DA0F6 /* SpriteNode.cpp in Sources */,
+				2DC0A9EF1C66B1CD0069D3CD /* Player.cpp in Sources */,
 				2DED45151C6345A10071A981 /* MenuState.cpp in Sources */,
 				2DED45181C6345FA0071A981 /* Button.cpp in Sources */,
 				2DAC99311C65530A008DA0F6 /* CommandQueue.cpp in Sources */,
