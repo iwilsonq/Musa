@@ -26,7 +26,7 @@ Application::Application()
 , mStatisticsNumFrames(0)
 {
     mWindow.setVerticalSyncEnabled(true);
-    mWindow.setKeyRepeatEnabled(false);
+    mWindow.setKeyRepeatEnabled(true);
     
     mFonts.load(Fonts::Main, "Media/Fonts/Sansation.ttf");
     

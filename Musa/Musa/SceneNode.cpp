@@ -13,7 +13,7 @@
 SceneNode::SceneNode(Category::Type category)
 : mChildren()
 , mParent(nullptr)
-, mDefaultCategory(2)
+, mDefaultCategory(0)
 {
 }
 

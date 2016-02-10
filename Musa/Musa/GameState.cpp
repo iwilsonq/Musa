@@ -28,11 +28,12 @@ void GameState::draw()
 
 bool GameState::update(sf::Time dt)
 {
+    CommandQueue& commands = mWorld.getCommandQueue();
+    mPlayer.handleRealTimeInput(commands);
     mWorld.update(dt);
     
  
-    CommandQueue& commands = mWorld.getCommandQueue();
-    mPlayer.handleRealTimeInput(commands);
+    
     
     return true;
 }

@@ -18,7 +18,8 @@
 #include <cmath>
 #include <iostream>
 
-const sf::Time TimePerFrame = sf::seconds(1.f/4.f);
+const sf::Time TimePerSprite = sf::seconds(1.f/4.f);
+sf::Time timeSinceLastUpdate;
 
 
 using namespace std::placeholders;
@@ -37,7 +38,17 @@ Hero::Hero(Type type, const TextureHolder& textures, const FontHolder& fonts)
 , mDirectionIndex(0)
 , mCategory(2)
 {
+    //ADDING SPRITE FRAMES
+    Animation walkDown(textures.get(Table[type].texture));
+    walkDown.addFramesLine(4, 4, 0);
+    Animation walkLeft(textures.get(Table[type].texture));
+    walkLeft.addFramesLine(4, 4, 1);
+    Animation walkRight(textures.get(Table[type].texture));
+    walkRight.addFramesLine(4, 4, 2);
+    Animation walkUp(textures.get(Table[type].texture));
+    walkUp.addFramesLine(4, 4, 3);
     
+    AnimatedSprite sprite(&walkDown, AnimatedSprite::Playing , sf::seconds(0.1));
 }
 
 /******************************************************************************************************
@@ -55,7 +66,8 @@ unsigned int Hero::getCategory() const
 
 void Hero::updateCurrent(sf::Time dt, CommandQueue& commands)
 {
-    updateMoveAnimation();
+    updateMoveAnimation(dt);
+    Entity::updateCurrent(dt, commands);
 }
 
 sf::FloatRect Hero::getBoundingRect() const
@@ -79,35 +91,37 @@ float Hero::getMaxSpeed() const
     return Table[mType].speed;
 }
 
-void Hero::updateMoveAnimation()
+void Hero::updateMoveAnimation(sf::Time dt)
 {
+    timeSinceLastUpdate += dt;
+    
     sf::IntRect textureRect = Table[mType].textureRect;
-    sf::Clock clock;
-    sf::Time timeSinceLastUpdate = sf::Time::Zero;
-    // Move Down: Texture rect offset once
-    if (getVelocity().y > 0.f)
+    
+    if (getVelocity().y > 0.f && timeSinceLastUpdate > TimePerSprite)
     {
-        std::cout << "PENIS";
-
-        sf::Time dt = clock.restart();
-        timeSinceLastUpdate += dt;
-        if(timeSinceLastUpdate > TimePerFrame)
-            textureRect.left += textureRect.width;
+        textureRect.left += textureRect.width;
+        mSprite.setTextureRect(textureRect);
     }
-    else if (getVelocity().y < 0.f)
+    else if (getVelocity().x < 0.f && timeSinceLastUpdate > TimePerSprite)
     {
-        sf::Time dt = clock.restart();
-        timeSinceLastUpdate += dt;
-        if(timeSinceLastUpdate > TimePerFrame)
-        {
-            textureRect.top = (3 * textureRect.height);
-            textureRect.left += textureRect.width;
-        }
+        textureRect.top = textureRect.height;
+        textureRect.left += textureRect.width;
+        mSprite.setTextureRect(textureRect);
+    }
+    else if (getVelocity().x > 0.f && timeSinceLastUpdate > TimePerSprite)
+    {
+        textureRect.top = 2 * textureRect.height;
+        textureRect.left += textureRect.width;
+        mSprite.setTextureRect(textureRect);
+    }
+    else if (getVelocity().y < 0.f && timeSinceLastUpdate > TimePerSprite)
+    {
+        textureRect.top = 3 * textureRect.height;
+        textureRect.left += textureRect.width;
+        mSprite.setTextureRect(textureRect);
     }
 
     
-    
-    mSprite.setTextureRect(textureRect);
 }
 
 

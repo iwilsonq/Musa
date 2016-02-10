@@ -8,7 +8,7 @@
 
 #include "Animation.hpp"
 
-Animation::Animation(sf::Texture* texture)
+Animation::Animation(const sf::Texture& texture)
 : mTexture(texture)
 {
 }
@@ -19,10 +19,10 @@ Animation::~Animation()
 
 void Animation::setTexture(sf::Texture* texture)
 {
-    mTexture = texture;
+    mTexture = *texture;
 }
 
-sf::Texture* Animation::getTexture() const
+sf::Texture Animation::getTexture() const
 {
     return mTexture;
 }
@@ -35,7 +35,7 @@ Animation& Animation::addFrame(const sf::IntRect& rect)
 
 Animation& Animation::addFramesLine(int number_x,int number_y,int line)
 {
-    const sf::Vector2u size = mTexture->getSize();
+    const sf::Vector2u size = mTexture.getSize();
     const float delta_x = size.x / float(number_x);
     const float delta_y = size.y / float(number_y);
     
@@ -49,7 +49,7 @@ Animation& Animation::addFramesLine(int number_x,int number_y,int line)
 
 Animation& Animation::addFramesColumn(int number_x,int number_y,int column)
 {
-    const sf::Vector2u size = mTexture->getSize();
+    const sf::Vector2u size = mTexture.getSize();
     const float delta_x = size.x / float(number_x);
     const float delta_y = size.y / float(number_y);
     

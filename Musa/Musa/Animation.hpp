@@ -17,11 +17,11 @@
 class Animation : private sf::NonCopyable
 {
 public:
-    Animation(sf::Texture* texture=nullptr);
+    Animation(const sf::Texture& texture);
     ~Animation();
     
     void                     setTexture(sf::Texture* texture);
-    sf::Texture*             getTexture()const;
+    sf::Texture              getTexture()const;
     
     Animation&               addFrame(const sf::IntRect& rect);
     Animation&               addFramesLine(int number_x,int number_y,int line);
@@ -33,7 +33,7 @@ public:
 private:
     friend class             AnimatedSprite;
     std::vector<sf::IntRect> mFrames;
-    sf::Texture*             mTexture;
+    sf::Texture              mTexture;
     
 };
 

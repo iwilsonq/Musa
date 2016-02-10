@@ -31,7 +31,7 @@ void AnimatedSprite::setAnimation(Animation* animation)
         mElapsed = sf::Time::Zero;
         mCurrentFrame = 0;
         setFrame(0,true);
-        setTexture(*mAnimation->getTexture());
+        setTexture(mAnimation->getTexture());
     }
 }
 

@@ -14,6 +14,7 @@
 #include <algorithm>
 #include <cmath>
 #include <limits>
+#include <iostream>
 
 
 World::World(sf::RenderTarget& outputTarget, FontHolder& fonts)
@@ -99,7 +100,7 @@ void World::buildScene()
     // Initialize the different layers
     for (std::size_t i = 0; i < LayerCount; ++i)
     {
-        Category::Type category = (i == Background) ? Category::SceneAirLayer : Category::None;
+        Category::Type category = (i == Ground) ? Category::SceneAirLayer : Category::None;
         
         SceneNode::Ptr layer(new SceneNode(category));
         mSceneLayers[i] = layer.get();
@@ -141,6 +142,7 @@ void World::adaptPlayerPosition()
     sf::FloatRect viewBounds = getViewBounds();
     const float borderDistance = 40.f;
     
+
     for(Hero* hero : mPlayerHeros)
     {
         sf::Vector2f position = hero->getPosition();

@@ -16,7 +16,7 @@ std::vector<HeroData> initializeHeroData()  // Creating basic stats
     std::vector<HeroData> data(Hero::TypeCount);
     
     data[Hero::Musa].hitpoints = 100;
-    data[Hero::Musa].speed = 200.f;
+    data[Hero::Musa].speed = 1000.f;
     data[Hero::Musa].texture = Textures::Auron;
     data[Hero::Musa].textureRect = sf::IntRect(0, 0, 32, 48);
 
