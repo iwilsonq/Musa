@@ -19,6 +19,7 @@
 #include "CommandQueue.hpp"
 #include "Command.hpp"
 #include "Hero.hpp"
+#include "NPC.hpp"
 #include "Animation.hpp"
 
 #include <SFML/System/NonCopyable.hpp>
@@ -51,12 +52,16 @@ public:
     void								setWorldHeight(float height);
     sf::FloatRect						getBattlefieldBounds() const;
     void								setCurrentBattleFieldPosition(float lineY);
+    void								addNPC(NPC::Type type, float relX, float relY);
+
     
 private:
     void								loadTextures();
     void								adaptPlayerPosition();
     void								adaptPlayerVelocity();
     void								handleCollisions();
+    void								addNPCs();
+    void								spawnNPCs();
     
     void								buildScene();
 
@@ -73,14 +78,14 @@ private:
     
     struct SpawnPoint
     {
-        SpawnPoint(Hero::Type type, float x, float y)
+        SpawnPoint(NPC::Type type, float x, float y)
         : type(type)
         , x(x)
         , y(y)
         {
         }
     
-        Hero::Type type;
+        NPC::Type type;
         float x;
         float y;
     };
@@ -99,6 +104,7 @@ private:
     
     sf::FloatRect						mWorldBounds;
     sf::Vector2f						mSpawnPosition;
+    std::vector<SpawnPoint>				mNPCSpawnPoints;
     std::vector<Hero*>                  mPlayerHeros;
     
     SpriteNode*							mFinishSprite;

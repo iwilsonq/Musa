@@ -7,6 +7,7 @@
 //
 
 #include "NPC.hpp"
+#include "Random.hpp"
 #include "Utility.hpp"
 #include "CommandQueue.hpp"
 #include "DataTables.hpp"
@@ -68,6 +69,11 @@ void NPC::remove()
     Entity::remove();
 }
 
+int NPC::updateMovementPattern(sf::Time dt)
+{
+    return random(1, 10);
+}
+
 void NPC::updateMoveAnimation(sf::Time dt)
 {
     Animation walkingAnimationDown;
@@ -86,30 +92,35 @@ void NPC::updateMoveAnimation(sf::Time dt)
     walkingAnimationUp.setSpriteSheet(mTexture);
     walkingAnimationUp.addFrameLine(4, 4, 3);
     
-    mCurrentAnimation = &walkingAnimationDown;
+    mCurrentAnimation = &walkingAnimationLeft;
     
     sf::Vector2f movement(0.f, 0.f);
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    
+    int i = updateMovementPattern(dt);
+    
+    switch (i)
     {
-        mCurrentAnimation = &walkingAnimationUp;
-        movement.y -= Table[mType].speed;
+        case 1:
+            mCurrentAnimation = &walkingAnimationUp;
+            movement.y -= Table[mType].speed;
+            break;
+        case 2:
+            mCurrentAnimation = &walkingAnimationDown;
+            movement.y += Table[mType].speed;
+            break;
+        case 3:
+            mCurrentAnimation = &walkingAnimationLeft;
+            movement.x -= Table[mType].speed;
+            break;
+        case 4:
+            mCurrentAnimation = &walkingAnimationRight;
+            movement.x += Table[mType].speed;
+            break;
+            
+        default:
+            break;
     }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        mCurrentAnimation = &walkingAnimationDown;
-        movement.y += Table[mType].speed;
-        
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-    {
-        mCurrentAnimation = &walkingAnimationLeft;
-        movement.x -= Table[mType].speed;
-    }
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-    {
-        mCurrentAnimation = &walkingAnimationRight;
-        movement.x += Table[mType].speed;
-    }
+
     
     mAnimatedSprite.play(*mCurrentAnimation);
     mAnimatedSprite.move(movement * dt.asSeconds());

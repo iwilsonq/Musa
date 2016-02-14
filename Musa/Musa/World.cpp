@@ -57,6 +57,7 @@ void World::update(sf::Time dt)
     
     // Remove all destroyed entities, create new ones
     mSceneGraph.removeWrecks();
+    spawnNPCs();
     
     // Regular update step, adapt position (correct if outside view)
     mSceneGraph.update(dt, mCommandQueue);
@@ -92,10 +93,41 @@ Hero* World::addHero()
     mPlayerHeros.push_back(player.get());
     mSceneLayers[Ground]->attachChild(std::move(player));
     
-    
-    
-    
     return mPlayerHeros.back();
+}
+/**
+ Methods for adding NPCs to world view
+ 1) addNPC creates a spawn point for a particular NPC
+ 2) addNPCs allows the user to manually define NPCs for the world
+ 3) spawnNPCs attaches these definitions to the scene graph
+ */
+
+void World::addNPC(NPC::Type type, float relX, float relY)
+{
+    SpawnPoint spawn(type, mSpawnPosition.x + relX, mSpawnPosition.y - relY);
+    mNPCSpawnPoints.push_back(spawn);
+}
+
+void World::addNPCs()
+{
+    addNPC(NPC::Samurai2, 100.f, 200.f);
+    addNPC(NPC::Samurai2, 200.f, 100.f);
+    addNPC(NPC::Samurai3, 300.f, 50.f);
+}
+
+void World::spawnNPCs()
+{
+    while(!mNPCSpawnPoints.empty() && mNPCSpawnPoints.back().y > getBattlefieldBounds().top)
+    {
+        SpawnPoint spawn = mNPCSpawnPoints.back();
+        
+        std::unique_ptr<NPC> npc(new NPC(spawn.type, mTextures.get(Textures::Samurai2), mFonts));
+        npc->setPosition(spawn.x, spawn.y);
+        
+        mSceneLayers[Ground]->attachChild(std::move(npc));
+        mNPCSpawnPoints.pop_back();
+    }
+        
 }
 
 /****~~~******
@@ -128,7 +160,7 @@ void World::buildScene()
     backSprite->setPosition(mWorldBounds.left, mWorldBounds.top - viewHeight);
     mSceneLayers[Background]->attachChild(std::move(backSprite));
     
-
+    addNPCs();
 }
 
 void World::setCurrentBattleFieldPosition(float lineY)
