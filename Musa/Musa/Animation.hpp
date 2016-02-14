@@ -14,27 +14,25 @@
 #include <SFML/System/Noncopyable.hpp>
 
 
-class Animation : private sf::NonCopyable
+#include <vector>
+#include <SFML/Graphics/Rect.hpp>
+#include <SFML/Graphics/Texture.hpp>
+
+class Animation
 {
 public:
-    Animation(const sf::Texture& texture);
-    ~Animation();
+    Animation();
     
-    void                     setTexture(sf::Texture* texture);
-    sf::Texture              getTexture()const;
-    
-    Animation&               addFrame(const sf::IntRect& rect);
-    Animation&               addFramesLine(int number_x,int number_y,int line);
-    Animation&               addFramesColumn(int number_x,int number_y,int column);
-    
-    size_t                   size()const;
-    const sf::IntRect&       getRect(size_t index)const;
+    void addFrame(sf::IntRect rect);
+    void setSpriteSheet(const sf::Texture& texture);
+    const sf::Texture* getSpriteSheet() const;
+    std::size_t getSize() const;
+    const sf::IntRect& getFrame(std::size_t n) const;
     
 private:
-    friend class             AnimatedSprite;
     std::vector<sf::IntRect> mFrames;
-    sf::Texture              mTexture;
-    
+    const sf::Texture* mTexture;
 };
+
 
 #endif /* defined(__Musa__Animation__) */

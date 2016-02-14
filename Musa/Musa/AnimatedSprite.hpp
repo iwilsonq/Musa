@@ -9,68 +9,48 @@
 #ifndef __Musa__AnimatedSprite__
 #define __Musa__AnimatedSprite__
 
-#include <SFML/Graphics.hpp>
-#include <SFML/System.hpp>
+#include <SFML/Graphics/RenderTarget.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/Graphics/Drawable.hpp>
+#include <SFML/Graphics/Transformable.hpp>
+#include <SFML/System/Vector2.hpp>
 
-#include <functional>
+#include "Animation.hpp"
 
-class Animation;
-class AnimatedSprite : public sf::Sprite
+class AnimatedSprite : public sf::Drawable, public sf::Transformable
 {
 public:
-    AnimatedSprite(const AnimatedSprite&) = default;
-    AnimatedSprite& operator=(const AnimatedSprite&) = default;
+    explicit AnimatedSprite(sf::Time frameTime = sf::seconds(0.2f), bool paused = false, bool looped = true);
     
-    AnimatedSprite(AnimatedSprite&&) = default;
-    AnimatedSprite& operator=(AnimatedSprite&&) = default;
-    
-    using FuncType = std::function<void()>;
-    static FuncType     defaultFunc;
-    
-    enum Status
-    {
-        Stopped,
-        Paused,
-        Playing
-    };
-    
-    AnimatedSprite(Animation* animation = nullptr,Status status= Playing,const sf::Time& deltaTime = sf::seconds(0.15),bool loop = true,int repeat=0);
-    
-    void                setAnimation(Animation* animation);
-    Animation*          getAnimation()const;
-    
-    void                setFrameTime(sf::Time deltaTime);
-    sf::Time            getFrameTime()const;
-    
-    void                setLoop(bool loop);
-    bool                getLoop()const;
-    
-    void                setRepeate(int nb);
-    int                 getRepeate()const;
-    
-    void                play();
-    void                pause();
-    void                stop();
-    
-    FuncType            on_finished;
-    
-    Status              getStatus()const;
-    
-    void                setFrame(size_t index);
-    
-    void                update(const sf::Time& deltaTime);
+    void update(sf::Time deltaTime);
+    void setAnimation(const Animation& animation);
+    void setFrameTime(sf::Time time);
+    void play();
+    void play(const Animation& animation);
+    void pause();
+    void stop();
+    void setLooped(bool looped);
+    void setColor(const sf::Color& color);
+    const Animation* getAnimation() const;
+    sf::FloatRect getLocalBounds() const;
+    sf::FloatRect getGlobalBounds() const;
+    bool isLooped() const;
+    bool isPlaying() const;
+    sf::Time getFrameTime() const;
+    void setFrame(std::size_t newFrame, bool resetTime = true);
     
 private:
-    Animation*          mAnimation;
-    sf::Time            mDelta;
-    sf::Time            mElapsed;
-    bool                mLoop;
-    int                 mRepeat;
-    Status              mStatus;
-    size_t              mCurrentFrame;
+    const Animation* mAnimation;
+    sf::Time mFrameTime;
+    sf::Time mCurrentTime;
+    std::size_t mCurrentFrame;
+    bool mIsPaused;
+    bool mIsLooped;
+    const sf::Texture* mTexture;
+    sf::Vertex mVertices[4];
     
-    void                setFrame(size_t index,bool resetTime);
+    virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
+    
 };
-
 
 #endif /* defined(__Musa__AnimatedSprite__) */

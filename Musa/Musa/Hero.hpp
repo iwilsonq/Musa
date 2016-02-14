@@ -17,7 +17,6 @@
 
 #include <SFML/Graphics/Sprite.hpp>
 
-
 class Hero : public Entity
 {
 public:
@@ -42,11 +41,14 @@ private:
     virtual void 			updateCurrent(sf::Time dt, CommandQueue& commands);
     void					updateMovementPattern(sf::Time dt);
     void                    updateMoveAnimation(sf::Time dt);
+    void                    initializeAnimations();
     
     
 private:
     Type                    mType;
-    sf::Sprite				mSprite;
+    //sf::Sprite				mSprite;
+    AnimatedSprite          mAnimatedSprite;
+
     
     float					mTravelledDistance;
     std::size_t				mDirectionIndex;

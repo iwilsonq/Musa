@@ -18,10 +18,6 @@
 #include <cmath>
 #include <iostream>
 
-const sf::Time TimePerSprite = sf::seconds(1.f/4.f);
-sf::Time timeSinceLastUpdate;
-
-
 using namespace std::placeholders;
 
 
@@ -33,22 +29,12 @@ namespace
 Hero::Hero(Type type, const TextureHolder& textures, const FontHolder& fonts)
 : Entity(Table[type].hitpoints)
 , mType(type)
-, mSprite(textures.get(Table[type].texture), Table[type].textureRect)
+, mAnimatedSprite()
 , mTravelledDistance(0.f)
 , mDirectionIndex(0)
 , mCategory(2)
 {
-    //ADDING SPRITE FRAMES
-    Animation walkDown(textures.get(Table[type].texture));
-    walkDown.addFramesLine(4, 4, 0);
-    Animation walkLeft(textures.get(Table[type].texture));
-    walkLeft.addFramesLine(4, 4, 1);
-    Animation walkRight(textures.get(Table[type].texture));
-    walkRight.addFramesLine(4, 4, 2);
-    Animation walkUp(textures.get(Table[type].texture));
-    walkUp.addFramesLine(4, 4, 3);
-    
-    AnimatedSprite sprite(&walkDown, AnimatedSprite::Playing , sf::seconds(0.1));
+    initializeAnimations();
 }
 
 /******************************************************************************************************
@@ -56,7 +42,7 @@ Hero::Hero(Type type, const TextureHolder& textures, const FontHolder& fonts)
  ******************************************************************************************************/
 void Hero::drawCurrent(sf::RenderTarget& target, sf::RenderStates states) const
 {
-    target.draw(mSprite, states);
+    target.draw(mAnimatedSprite, states);
 }
 
 unsigned int Hero::getCategory() const
@@ -72,7 +58,7 @@ void Hero::updateCurrent(sf::Time dt, CommandQueue& commands)
 
 sf::FloatRect Hero::getBoundingRect() const
 {
-    return getWorldTransform().transformRect(mSprite.getGlobalBounds());
+    return getWorldTransform().transformRect(mAnimatedSprite.getGlobalBounds());
 }
 
 bool Hero::isMarkedForRemoval() const
@@ -91,36 +77,33 @@ float Hero::getMaxSpeed() const
     return Table[mType].speed;
 }
 
+
 void Hero::updateMoveAnimation(sf::Time dt)
 {
-    timeSinceLastUpdate += dt;
     
-    sf::IntRect textureRect = Table[mType].textureRect;
-    
-    if (getVelocity().y > 0.f && timeSinceLastUpdate > TimePerSprite)
-    {
-        textureRect.left += textureRect.width;
-        mSprite.setTextureRect(textureRect);
-    }
-    else if (getVelocity().x < 0.f && timeSinceLastUpdate > TimePerSprite)
-    {
-        textureRect.top = textureRect.height;
-        textureRect.left += textureRect.width;
-        mSprite.setTextureRect(textureRect);
-    }
-    else if (getVelocity().x > 0.f && timeSinceLastUpdate > TimePerSprite)
-    {
-        textureRect.top = 2 * textureRect.height;
-        textureRect.left += textureRect.width;
-        mSprite.setTextureRect(textureRect);
-    }
-    else if (getVelocity().y < 0.f && timeSinceLastUpdate > TimePerSprite)
-    {
-        textureRect.top = 3 * textureRect.height;
-        textureRect.left += textureRect.width;
-        mSprite.setTextureRect(textureRect);
-    }
+    mAnimatedSprite.setAnimation();
 
+    if (getVelocity().y > 0.f)
+    {
+        mAnimatedSprite.setAnimation(&walkDown);
+        mAnimatedSprite.play();
+    }
+    else if (getVelocity().x < 0.f)
+    {
+        mAnimatedSprite.setAnimation(&walkLeft);
+        mAnimatedSprite.play();
+    }
+    else if (getVelocity().x > 0.f)
+    {
+        mAnimatedSprite.setAnimation(&walkRight);
+        mAnimatedSprite.play();
+    }
+    else if (getVelocity().y < 0.f)
+    {
+        mAnimatedSprite.setAnimation(&walkUp);
+        mAnimatedSprite.play();
+    }
+    mAnimatedSprite.update(dt);
     
 }
 

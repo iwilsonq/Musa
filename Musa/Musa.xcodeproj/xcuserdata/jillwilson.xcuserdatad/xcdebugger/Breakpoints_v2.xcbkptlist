@@ -57,22 +57,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Musa/AnimatedSprite.cpp"
-            timestampString = "476445706.548931"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "AnimatedSprite::setAnimation(Animation* animation)"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "Musa/SceneNode.cpp"
             timestampString = "476502086.161164"
             startingColumnNumber = "9223372036854775807"
@@ -134,16 +118,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Musa/AnimatedSprite.cpp"
+            timestampString = "476786256.517267"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "AnimatedSprite::getFrameTime()"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Musa/Animation.cpp"
-            timestampString = "476751358.095578"
+            filePath = "Musa/AnimatedSprite.cpp"
+            timestampString = "476786287.214243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "25"
-            endingLineNumber = "25"
-            landmarkName = "Animation::getTexture()"
+            startingLineNumber = "140"
+            endingLineNumber = "140"
+            landmarkName = "AnimatedSprite::update(sf::Time deltaTime)"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
