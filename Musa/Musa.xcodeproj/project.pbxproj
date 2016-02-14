@@ -12,6 +12,7 @@
 		2D669AEE1C65FEBA0065DA73 /* Entity.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AEC1C65FEBA0065DA73 /* Entity.cpp */; };
 		2D669AF11C65FFB90065DA73 /* Hero.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AEF1C65FFB90065DA73 /* Hero.cpp */; };
 		2D669AF41C6602720065DA73 /* DataTables.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D669AF21C6602720065DA73 /* DataTables.cpp */; };
+		2D76FF451C70492700E5B5BD /* NPC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2D76FF431C70492700E5B5BD /* NPC.cpp */; };
 		2DAC992A1C654B65008DA0F6 /* SceneNode.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC99281C654B65008DA0F6 /* SceneNode.cpp */; };
 		2DAC992E1C65527E008DA0F6 /* Command.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC992C1C65527E008DA0F6 /* Command.cpp */; };
 		2DAC99311C65530A008DA0F6 /* CommandQueue.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2DAC992F1C65530A008DA0F6 /* CommandQueue.cpp */; };
@@ -44,6 +45,8 @@
 		2D669AF01C65FFB90065DA73 /* Hero.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = Hero.hpp; sourceTree = "<group>"; };
 		2D669AF21C6602720065DA73 /* DataTables.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = DataTables.cpp; sourceTree = "<group>"; };
 		2D669AF31C6602720065DA73 /* DataTables.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = DataTables.hpp; sourceTree = "<group>"; };
+		2D76FF431C70492700E5B5BD /* NPC.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = NPC.cpp; sourceTree = "<group>"; };
+		2D76FF441C70492700E5B5BD /* NPC.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = NPC.hpp; sourceTree = "<group>"; };
 		2DAC99281C654B65008DA0F6 /* SceneNode.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = SceneNode.cpp; sourceTree = "<group>"; };
 		2DAC99291C654B65008DA0F6 /* SceneNode.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = SceneNode.hpp; sourceTree = "<group>"; };
 		2DAC992B1C6550E9008DA0F6 /* Category.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Category.hpp; sourceTree = "<group>"; };
@@ -172,6 +175,8 @@
 				2DC0A9EE1C66B1CD0069D3CD /* Player.hpp */,
 				2DC0A9F01C66B5060069D3CD /* KeyBinding.cpp */,
 				2DC0A9F11C66B5060069D3CD /* KeyBinding.hpp */,
+				2D76FF431C70492700E5B5BD /* NPC.cpp */,
+				2D76FF441C70492700E5B5BD /* NPC.hpp */,
 			);
 			path = Musa;
 			sourceTree = "<group>";
@@ -286,6 +291,7 @@
 				2DAD7F2D1C64AF83009DCBD6 /* GameState.cpp in Sources */,
 				2DED44FB1C63350D0071A981 /* Application.cpp in Sources */,
 				2DED450F1C6344BE0071A981 /* TitleState.cpp in Sources */,
+				2D76FF451C70492700E5B5BD /* NPC.cpp in Sources */,
 				2DED44F81C6334BE0071A981 /* main.cpp in Sources */,
 				2DED451F1C6346CA0071A981 /* Container.cpp in Sources */,
 				2DAC992A1C654B65008DA0F6 /* SceneNode.cpp in Sources */,

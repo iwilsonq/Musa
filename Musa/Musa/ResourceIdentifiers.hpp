@@ -23,6 +23,9 @@ namespace Textures
         TitleScreen,
         Buttons,
         Auron,
+        Guy,
+        Samurai2,
+        Samurai3,
     };
 }
 

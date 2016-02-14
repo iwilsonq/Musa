@@ -44,7 +44,7 @@ public:
     
     
 private:
-    void					initializeActions();
+    //void					initializeActions();
     
     
 private:

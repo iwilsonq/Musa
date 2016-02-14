@@ -76,6 +76,11 @@ void World::loadTextures()
 {
     mTextures.load(Textures::Desert, "Media/Textures/Background.png");
     mTextures.load(Textures::Auron, "Media/Textures/auron.png");
+    mTextures.load(Textures::Guy, "Media/Textures/player.png");
+    mTextures.load(Textures::Samurai2, "Media/Textures/samurai2.png");
+    mTextures.load(Textures::Samurai3, "Media/Textures/samurai3.png");
+
+
     
 }
 
@@ -86,6 +91,8 @@ Hero* World::addHero()
     
     mPlayerHeros.push_back(player.get());
     mSceneLayers[Ground]->attachChild(std::move(player));
+    
+    
     
     
     return mPlayerHeros.back();

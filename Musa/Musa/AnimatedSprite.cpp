@@ -169,7 +169,7 @@ void AnimatedSprite::draw(sf::RenderTarget& target, sf::RenderStates states) con
     {
         states.transform *= getTransform();
         states.texture = mTexture;
-        target.draw(mVeertices, 4, sf::Quads, states);
+        target.draw(mVertices, 4, sf::Quads, states);
     }
 }
 

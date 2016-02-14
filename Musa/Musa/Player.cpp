@@ -26,7 +26,7 @@ struct HeroMover
     
     void operator() (Hero& hero, sf::Time) const
     {
-        hero.accelerate(velocity * hero.getMaxSpeed());
+        hero.accelerate(velocity);
     }
     
     sf::Vector2f velocity;

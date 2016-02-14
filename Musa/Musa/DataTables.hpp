@@ -39,6 +39,15 @@ struct HeroData
     sf::IntRect						textureRect;
 };
 
+struct NPCData
+{
+    int                             hitpoints;
+    float                           speed;
+    Textures::ID                    texture;
+    sf::IntRect                     textureRect;
+};
+
 std::vector<HeroData>	initializeHeroData();
+std::vector<NPCData>    initializeNPCData();
 
 #endif /* defined(__Musa__DataTables__) */

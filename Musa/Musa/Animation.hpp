@@ -24,6 +24,7 @@ public:
     Animation();
     
     void addFrame(sf::IntRect rect);
+    void addFrameLine(int numFrames_x, int numFrames_y, int line);
     void setSpriteSheet(const sf::Texture& texture);
     const sf::Texture* getSpriteSheet() const;
     std::size_t getSize() const;

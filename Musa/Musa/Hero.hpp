@@ -12,6 +12,7 @@
 #include "Entity.hpp"
 #include "Command.hpp"
 #include "ResourceIdentifiers.hpp"
+#include "ResourceHolder.hpp"
 #include "Animation.hpp"
 #include "AnimatedSprite.hpp"
 
@@ -41,13 +42,13 @@ private:
     virtual void 			updateCurrent(sf::Time dt, CommandQueue& commands);
     void					updateMovementPattern(sf::Time dt);
     void                    updateMoveAnimation(sf::Time dt);
-    void                    initializeAnimations();
     
     
 private:
     Type                    mType;
-    //sf::Sprite				mSprite;
     AnimatedSprite          mAnimatedSprite;
+    Animation*              mCurrentAnimation;
+    sf::Texture             mTexture;
 
     
     float					mTravelledDistance;

@@ -7,7 +7,6 @@
 //
 
 #include "Hero.hpp"
-#include "ResourceHolder.hpp"
 #include "Utility.hpp"
 #include "CommandQueue.hpp"
 #include "DataTables.hpp"
@@ -29,12 +28,14 @@ namespace
 Hero::Hero(Type type, const TextureHolder& textures, const FontHolder& fonts)
 : Entity(Table[type].hitpoints)
 , mType(type)
-, mAnimatedSprite()
+, mAnimatedSprite(sf::seconds(0.2), true, false)
+, mCurrentAnimation(nullptr)
+, mTexture(textures.get(Textures::Auron))
 , mTravelledDistance(0.f)
 , mDirectionIndex(0)
 , mCategory(2)
 {
-    initializeAnimations();
+    
 }
 
 /******************************************************************************************************
@@ -80,31 +81,65 @@ float Hero::getMaxSpeed() const
 
 void Hero::updateMoveAnimation(sf::Time dt)
 {
+    Animation walkingAnimationDown;
+    walkingAnimationDown.setSpriteSheet(mTexture);
+    walkingAnimationDown.addFrameLine(4, 4, 0);
     
-    mAnimatedSprite.setAnimation();
+    Animation walkingAnimationLeft;
+    walkingAnimationLeft.setSpriteSheet(mTexture);
+    walkingAnimationLeft.addFrameLine(4, 4, 1);
+    
+    Animation walkingAnimationRight;
+    walkingAnimationRight.setSpriteSheet(mTexture);
+    walkingAnimationRight.addFrameLine(4, 4, 2);
+    
+    Animation walkingAnimationUp;
+    walkingAnimationUp.setSpriteSheet(mTexture);
+    walkingAnimationUp.addFrameLine(4, 4, 3);
+    
+    mCurrentAnimation = &walkingAnimationDown;
+    
+    bool noKeyWasPressed = true;
+    
+    
+    sf::Vector2f movement(0.f, 0.f);
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        mCurrentAnimation = &walkingAnimationUp;
+        movement.y -= Table[mType].speed;
+        noKeyWasPressed = false;
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        mCurrentAnimation = &walkingAnimationDown;
+        movement.y += Table[mType].speed;
+        noKeyWasPressed = false;
 
-    if (getVelocity().y > 0.f)
-    {
-        mAnimatedSprite.setAnimation(&walkDown);
-        mAnimatedSprite.play();
     }
-    else if (getVelocity().x < 0.f)
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
     {
-        mAnimatedSprite.setAnimation(&walkLeft);
-        mAnimatedSprite.play();
+        mCurrentAnimation = &walkingAnimationLeft;
+        movement.x -= Table[mType].speed;
+        noKeyWasPressed = false;
+
     }
-    else if (getVelocity().x > 0.f)
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
     {
-        mAnimatedSprite.setAnimation(&walkRight);
-        mAnimatedSprite.play();
+        mCurrentAnimation = &walkingAnimationRight;
+        movement.x += Table[mType].speed;
+        noKeyWasPressed = false;
     }
-    else if (getVelocity().y < 0.f)
+    
+    mAnimatedSprite.play(*mCurrentAnimation);
+    mAnimatedSprite.move(movement * dt.asSeconds());
+    
+    // if no key was pressed stop the animation
+    if (noKeyWasPressed)
     {
-        mAnimatedSprite.setAnimation(&walkUp);
-        mAnimatedSprite.play();
+        mAnimatedSprite.stop();
     }
+    noKeyWasPressed = true;
+    
     mAnimatedSprite.update(dt);
     
 }
-
-
